@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "node --watch src/server.js",
+    "stream": "node streams/fundamentals.js",
+    "stream:server": "node streams/stream-http-server.js",
+    "stream:request": "node streams/fake-upload-to-http-stream.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
