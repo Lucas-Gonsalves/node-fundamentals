@@ -35,4 +35,12 @@ export class Database {
 
     return data;
   }
+
+  remove(table, id) {
+    if (Array.isArray(this.#database[table][id])) {
+      this.#database[table].filter;
+    } else {
+      this.#database[table] = [data];
+    }
+  }
 }
