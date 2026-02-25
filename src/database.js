@@ -36,11 +36,21 @@ export class Database {
     return data;
   }
 
-  remove(table, id) {
-    if (Array.isArray(this.#database[table][id])) {
-      this.#database[table].filter;
-    } else {
-      this.#database[table] = [data];
+  delete(table, id) {
+    const rowIndex = this.#database[table].findIndex((row) => row.id === id);
+
+    if (rowIndex > -1) {
+      this.#database[table].splice(rowIndex, 1);
+      this.#persist();
+    }
+  }
+
+  update(table, id, data) {
+    const rowIndex = this.#database[table].findIndex((row) => row.id === id);
+
+    if (rowIndex > -1) {
+      this.#database[table][rowIndex] = { id, ...data };
+      this.#persist();
     }
   }
 }
